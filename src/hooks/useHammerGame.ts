@@ -19,7 +19,7 @@ export const useHammerGame = () => {
   } = usePowerMeter({
     max: POWER_CONFIG.MAX,
     min: POWER_CONFIG.MIN,
-    frameDuration: POWER_CONFIG.FRAME_DURATION,
+    speed: POWER_CONFIG.SPEED,
     redirectChance: POWER_CONFIG.REDIRECT_CHANCE,
   })
 

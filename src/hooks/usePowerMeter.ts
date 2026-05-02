@@ -1,34 +1,27 @@
-import { onBeforeUnmount, readonly, ref, toValue, watch, type MaybeRefOrGetter } from 'vue'
+import { onBeforeUnmount, readonly, ref } from 'vue'
 
 interface UsePowerMeterConfig {
   max: number
   min: number
-  frameDuration: number
+  speed: number
   redirectChance: number
 }
-
-export const usePowerMeter = ({ max, min, frameDuration, redirectChance }: UsePowerMeterConfig) => {
+export const usePowerMeter = ({ max, min, speed, redirectChance }: UsePowerMeterConfig) => {
   const power = ref(min)
   const direction = ref(1)
 
   let animationId: null | number = null
-  let lastFrameTime = 0
-
-  const step = (max - min) / 100
+  let lastTimestamp = 0
 
   function update(timestamp: number) {
-    if (timestamp - lastFrameTime < frameDuration) {
-      animationId = requestAnimationFrame(update)
-      return
-    }
-
-    lastFrameTime = timestamp
+    const deltaTime = lastTimestamp ? (timestamp - lastTimestamp) / 1000 : 0
+    lastTimestamp = timestamp
 
     if (Math.random() < redirectChance) {
       direction.value *= -1
     }
 
-    const delta = step * direction.value
+    const delta = speed * deltaTime * direction.value
 
     power.value += delta
 
@@ -46,7 +39,7 @@ export const usePowerMeter = ({ max, min, frameDuration, redirectChance }: UsePo
   function start() {
     power.value = min
     direction.value = 1
-    lastFrameTime = performance.now()
+    lastTimestamp = 0
     animationId = requestAnimationFrame(update)
   }
 
