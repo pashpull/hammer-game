@@ -1,0 +1,10 @@
+export const GAME_PHASES = {
+  WELCOME: 'WELCOME',
+  IN_GAME: 'IN_GAME',
+  STRIKE_WAITING: 'STRIKE_WAITING',
+  TOWER_WAITING: 'TOWER_WAITING',
+  FAIL: 'FAIL',
+  WIN: 'WIN',
+}
+
+export type GAME_PHASE_NAME = (typeof GAME_PHASES)[keyof typeof GAME_PHASES]

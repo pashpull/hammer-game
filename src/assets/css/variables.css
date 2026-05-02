@@ -1,0 +1,29 @@
+:root {
+  /* colors */
+  --white: #fff;
+  --white-00: rgba(255, 255, 255, 0);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --white-40: rgba(255, 255, 255, 0.4);
+
+  --dark: #0a0e68;
+
+  --bg-light: #c3e5f5;
+  --blue-light: #63b6df;
+
+  --green: #00d355;
+
+  --yellow: #ffdf35;
+
+  --pink: #ff42e0;
+  --pink-dark: #bb20a2;
+  --pink-light: #b676cb;
+
+  --accent: #ff4646;
+
+  --red: #ff0101;
+  --red-light: #ff9494;
+  /* radius */
+  --radius-4: 4px;
+  --radius-2: 2px;
+  --radius-1: 1px;
+}
