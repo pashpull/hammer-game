@@ -1,4 +1,4 @@
-import type { RobotMode } from '@/components/features/Robot/robot.type'
+import type { RobotMode } from '@/components/features/Robot/robot.types'
 import { GAME_PHASES, type GAME_PHASE_NAME } from './gamePhases'
 import { ROBOT_MODES } from '@/components/features/Robot/robot.constants'
 
