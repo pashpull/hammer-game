@@ -6,6 +6,6 @@ export interface LevelProps {
 export interface LevelsConfig {
   LEVELS_LIST: LevelProps[]
   BASE_LEVEL_HEIGHT: number
-  STEP: number
+  LEVELS_HEIGHT_DELTA: number
   STEP_ANIMATION_DURATION: number
 }

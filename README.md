@@ -38,10 +38,12 @@
 │   ├── gameConfig.ts               # Общая конфигурация игры
 │   └── *Map.ts                     # Маппинги: фаза игры → состояние компонента
 │
-├── hooks/
+├── composables/
 │   ├── useGameEngine.ts            # Рутовый хук
 │   ├── use[Feature].ts             # Хуки бизнес-фич (usePowerMeter)
 │   └── use[Utility].ts             # Универсальные хуки (useTimeoutWatch)
+│
+├── utils/                          # Утилиты, чистые функции
 │
 ├── App.vue
 ├── main.ts

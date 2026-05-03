@@ -6,6 +6,7 @@ import { ROBOT_MODES_MAP } from '@/constants/robotModesMap'
 import { TITLES } from '@/constants/titlesMap'
 import { computed, ref } from 'vue'
 import { usePowerMeter } from './usePowerMeter'
+import { getPercentForRange } from '@/utils/getPercentForRange'
 
 export const useHammerGame = () => {
   // Текущая фаза игры
@@ -48,7 +49,9 @@ export const useHammerGame = () => {
   }
 
   // Производные состояния
-  const powerPercent = computed(() => ((power.value - GAME_CONFIG.POWER_MIN) * 100) / POWER_RANGE)
+  const powerPercent = computed(() =>
+    getPercentForRange(power.value, GAME_CONFIG.POWER_MIN, POWER_RANGE),
+  )
   const hammerMode = computed(() => HAMMER_MODES_MAP[currentGamePhase.value])
   const title = computed(() => TITLES[currentGamePhase.value])
   const buttonTitle = computed(() => BUTTON_TITLES_MAP[currentGamePhase.value])
@@ -71,13 +74,12 @@ export const useHammerGame = () => {
         return 100
       }
 
-      return ((power.value - GAME_CONFIG.POWER_MIN) * 100) / POWER_RANGE
+      return powerPercent.value
     }
     return 0
   })
 
   // Обработчики событий
-
   const handleButtonClick = () => {
     setNextPhase(false)
 

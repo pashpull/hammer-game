@@ -13,7 +13,7 @@ const props = withDefaults(
 </script>
 
 <template>
-  <button class="button" v-bind="$attrs" :class="`button_${props.variant}`">
+  <button v-bind="$attrs" :class="['button', `button_${props.variant}`]">
     <slot />
   </button>
 </template>

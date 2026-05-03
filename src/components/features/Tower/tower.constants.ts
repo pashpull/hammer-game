@@ -11,7 +11,7 @@ export const LEVELS_CONFIG: LevelsConfig = {
     { color: '#254B9D', colorActive: '#00B047' },
   ],
   BASE_LEVEL_HEIGHT: 18,
-  STEP: 5.4,
+  LEVELS_HEIGHT_DELTA: 5.4,
   STEP_ANIMATION_DURATION: 70,
 }
 

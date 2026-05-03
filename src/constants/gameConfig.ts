@@ -1,6 +1,6 @@
 export const GAME_CONFIG = {
   // Значение WIN_THRESHOLD должно быть в диапазоне от POWER_MIN до POWER_MAX
-  WIN_THRESHOLD: 60,
+  WIN_THRESHOLD: 70,
   POWER_MIN: 0,
   POWER_MAX: 100,
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { EVENT_IS_FILLED, LEVELS_CONFIG, TOTAL_LEVELS } from './tower.constants'
-import { useTimeoutWatch } from '@/hooks/useTimeoutWatch'
+import { useTimeoutWatch } from '@/composables/useTimeoutWatch'
 import { getFilledLevelsCount, getLevelStyles, getTotalAnimationDuration } from './tower.utils'
 
 const props = withDefaults(
@@ -15,8 +15,8 @@ const filledLevelsCount = computed(() => getFilledLevelsCount(props.filledPercen
 const totalAnimationDuration = computed(() => getTotalAnimationDuration(filledLevelsCount.value))
 
 const scaleStyles = {
-  '--base-height': `${LEVELS_CONFIG.BASE_LEVEL_HEIGHT}px`,
-  '--step': `${LEVELS_CONFIG.STEP}px`,
+  '--base-level-height': `${LEVELS_CONFIG.BASE_LEVEL_HEIGHT}px`,
+  '--levels-height-delta': `${LEVELS_CONFIG.LEVELS_HEIGHT_DELTA}px`,
 }
 
 const emit = defineEmits([EVENT_IS_FILLED])
@@ -153,8 +153,6 @@ useTimeoutWatch(
   }
 }
 .scale {
-  --base-height: 18px;
-  --step: 5px;
   gap: 2px;
   flex-grow: 1;
   min-height: 0;
@@ -164,7 +162,7 @@ useTimeoutWatch(
     --index: 1;
 
     position: relative;
-    height: calc(var(--base-height) + var(--index) * var(--step));
+    height: calc(var(--base-level-height) + var(--index) * var(--levels-height-delta));
     transition: background-color ease;
 
     &:first-child {

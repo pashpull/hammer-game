@@ -5,7 +5,7 @@ import ButtonWithHammer from './components/features/ButtonWithHammer/ButtonWithH
 import Button from './components/ui/Button/Button.vue'
 import Robot from './components/features/Robot/Robot.vue'
 
-import { useHammerGame } from './hooks/useHammerGame'
+import { useHammerGame } from './composables/useHammerGame'
 
 const {
   towerPercent,

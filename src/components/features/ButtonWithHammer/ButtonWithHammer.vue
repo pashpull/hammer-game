@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTimeoutWatch } from '@/hooks/useTimeoutWatch'
+import { useTimeoutWatch } from '@/composables/useTimeoutWatch'
 import {
   STRIKE_ANIMATION_DURATION,
   EVENT_STRIKE_ENDED,
@@ -40,7 +40,6 @@ useTimeoutWatch(
 
 <style scoped lang="scss">
 .button-with-hammer {
-  --strike-animation-duration: 300ms;
   width: 124px;
   height: 60px;
   position: relative;
