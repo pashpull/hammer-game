@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { ROBOT_MODES } from './robot.constants'
+import { ROBOT_IMAGES, ROBOT_MODES } from './robot.constants'
 import type { RobotMode } from './robot.types'
 import { changeImage, setImage } from './robot.utils'
+import { preloadImages } from '@/utils/preloadImages'
 
 const props = withDefaults(
   defineProps<{
@@ -17,6 +18,7 @@ const imgRef = ref<HTMLDivElement | null>(null)
 let cleanupAnimation: (() => void) | null = null
 
 onMounted(() => {
+  preloadImages(Object.values(ROBOT_IMAGES))
   const imgEl = imgRef.value
   if (!imgEl) return
   setImage(imgEl, props.mode)
