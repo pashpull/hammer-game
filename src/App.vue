@@ -58,7 +58,10 @@ const {
   background-image: url('@/assets/images/bg-game.jpg');
   background-size: cover;
   background-position: bottom;
-  width: 360px;
+  min-width: 320px;
+  max-width: 360px;
+  width: 100vw;
+  flex-shrink: 0;
   min-height: fit-content;
   max-height: 640px;
   height: 100vh;
@@ -83,7 +86,8 @@ const {
 
 .bottom {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+  grid-template-columns: 70px 1fr 70px;
   gap: 8px 11px;
   justify-content: center;
 }
@@ -96,7 +100,8 @@ const {
 
 .middle {
   position: relative;
-  width: 172px;
+  max-width: 172px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
