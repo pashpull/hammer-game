@@ -50,7 +50,7 @@ export const useHammerGame = () => {
 
   // Производные состояния
   const powerPercent = computed(() =>
-    getPercentForRange(power.value, GAME_CONFIG.POWER_MIN, POWER_RANGE),
+    getPercentForRange(power.value, GAME_CONFIG.POWER_MIN, GAME_CONFIG.POWER_MAX),
   )
   const hammerMode = computed(() => HAMMER_MODES_MAP[currentGamePhase.value])
   const title = computed(() => TITLES[currentGamePhase.value])
@@ -74,7 +74,7 @@ export const useHammerGame = () => {
         return 100
       }
 
-      return powerPercent.value
+      return Math.max(powerPercent.value, 1)
     }
     return 0
   })
